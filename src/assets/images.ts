@@ -16,8 +16,8 @@ import instaReelVerticalScene from './images/insta_reel_vertical_scene_179440884
 import longtermEpuisementPerformatif from './images/longterm_epuisement_performatif_1794577117619.jpg';
 import longtermSolitudeHyperconnectee from './images/longterm_solitude_hyperconnectee_1794577119713.jpg';
 import memeFomoInsta from './images/meme_fomo_insta_1794407551278.jpg';
-import solutionAlcoveVacuite from './images/solution_alcove_vacuite_1795697723251.jpg';
-import solutionSocleCesure from './images/solution_socle_cesure_1795697721736.jpg';
+import solutionAbriSouffle from './images/solution_abri_souffle_1795699662063.jpg';
+import solutionTabletteArgile from './images/solution_tablette_argile_1795699661461.jpg';
 import taoVideFertile from './images/tao_vide_fertile_1795697721750.jpg';
 import taoWuWeiSouffle from './images/tao_wu_wei_souffle_1795697722668.jpg';
 import vulnEnnuiWaiting from './images/vuln_ennui_waiting_1794409614845.jpg';
@@ -43,8 +43,8 @@ export const IMAGES = {
   longtermEpuisementPerformatif,
   longtermSolitudeHyperconnectee,
   memeFomoInsta,
-  solutionAlcoveVacuite,
-  solutionSocleCesure,
+  solutionAbriSouffle,
+  solutionTabletteArgile,
   taoVideFertile,
   taoWuWeiSouffle,
   vulnEnnuiWaiting,

@@ -160,63 +160,63 @@ const LONGTERM_SLIDES = [
 const GREEK_VULNERABILITIES = [
   {
     tag: 'Le « Faire » · Technè et Praxis (Aristote)',
-    title: 'Du geste créateur incarné au réflexe machinique',
+    title: 'Du geste qui fabrique au réflexe du pouce',
     image: IMAGES.greekFaireTechne,
     description:
-      'Pour Aristote, le faire (technè / poïèsis) produit une œuvre qui a du sens, et l’agir (praxis) accomplit le sujet. Instagram atrophie ce « Faire » en un réflexe répétitif du pouce (défiler, liker, formater pour l’algorithme) qui ne laisse ni maîtrise ni œuvre véritable.'
+      'Pour Aristote, faire suppose un geste maîtrisé qui laisse une trace. Sur Instagram, le pouce défile et like par réflexe sans rien construire de durable.'
   },
   {
     tag: 'Le « Savoir » · Pharmakon et Doxa (Platon)',
-    title: 'Mémoire externalisée et illusion de connaissance',
+    title: 'Tout enregistrer sans rien retenir',
     image: IMAGES.greekSavoirPharmakon,
     description:
-      'Dans le Phèdre, Platon montre que la trace extérieure (hypomnèse) endort la mémoire vivante (anamnèse). Le fil Instagram agit comme un pharmakon ambigu : il promet de conserver nos souvenirs et de nous informer, mais réduit le savoir (épistémè) au bruit instantané de l’opinion (doxa).'
+      'Platon rappelle qu’un support extérieur endort la mémoire vivante. En sauvegardant des milliers de posts, on croit savoir mais on ne retient plus rien par soi-même.'
   }
 ];
 
 const GREEK_SOLUTION_MODES = {
   solution: {
     label: 'L’objet',
-    kicker: 'Le Socle de Césure · Céramique, laiton et papier coton',
-    title: 'Déposer l’écran pour retrouver la main et la trace choisie',
+    kicker: 'Tablette d’argile temporaire · Bois et terre réutilisable',
+    title: 'Noter à la main ce qui compte, sans archivage automatique',
     points: [
       {
-        heading: 'Principe matériel',
-        text: 'Un socle lourd en grès mat et laiton brossé où le téléphone glisse face cachée. Son poids libère un sablier mécanique à billes de 15 minutes et ouvre un feuillet de papier coton.'
+        heading: 'Comment ça marche',
+        text: 'Un cadre en bois rempli d’argile souple où l’on grave ses notes ou croquis au stylet. Si on n’y retouche pas pendant 7 jours, une petite vibration du socle lisse la terre à neuf.'
       },
       {
         heading: 'Soin du Faire et du Savoir',
-        text: 'Réhabilite un faire lent (écrire, dessiner, noter une idée à la main) et restaure un savoir intériorisé : on ne choisit de conserver que ce qui mérite d’être formulé par soi-même.'
+        text: 'On retrouve le geste concret d’écrire, et on ne garde sur papier que les idées que l’on a pris la peine de relire et de recopier.'
       }
     ]
   },
   merleau: {
     label: 'Merleau-Ponty',
-    kicker: 'Expérience vécue · Corps propre et intentionnalité motrice',
-    title: 'Quitter le glissement lisse pour habiter la résistance de la matière',
+    kicker: 'Expérience vécue · Toucher et résistance',
+    title: 'Sentir la matière freiner et guider la main',
     points: [
       {
-        heading: 'Réveil du schéma corporel',
-        text: 'Sur une vitre froide, le doigt ne touche que du vide lumineux. Ici, la main éprouve le grain du grès, la fraîcheur du laiton et la friction de la plume sur le papier épais.'
+        heading: 'Une vraie résistance physique',
+        text: 'Contrairement à la vitre lisse du téléphone, la terre freine le stylet et oblige à ralentir son tracé.'
       },
       {
-        heading: 'Unité perceptivo-motrice',
-        text: 'La perception redevient active et incarnée : le geste de poser le téléphone engage tout le corps dans une césure spatiale claire, loin de l’hypnose immobile du regard.'
+        heading: 'Un geste qui engage le corps',
+        text: 'Appuyer, creuser ou lisser la terre avec la paume redonne du poids et de la présence à ce que l’on note.'
       }
     ]
   },
   heidegger: {
     label: 'Heidegger',
-    kicker: 'Mode d’être au monde · Sortir du Gestell vers la Gelassenheit',
-    title: 'Passer du temps mis en demeure au séjour auprès des choses',
+    kicker: 'Mode d’être au monde · Sortir du stock permanent',
+    title: 'Ne plus tout accumuler comme une réserve infinie',
     points: [
       {
-        heading: 'Rupture avec l’Arraisonnement (Gestell)',
-        text: 'Instagram somme la vie d’apparaître comme un fonds calculable (métriques, stories à rentabiliser). L’objet suspend cette sommation permanente.'
+        heading: 'Fin de l’accumulation automatique',
+        text: 'Le numérique garde tout sans effort pour être mesuré ou montré. Ici, ce qui n’est pas entretenu retourne naturellement au silence.'
       },
       {
-        heading: 'Clairière et sérénité (Gelassenheit)',
-        text: 'Le Socle institue un lieu où l’outil cesse de commander à l’humain : l’être-là (Dasein) retrouve la capacité d’habiter sa pensée sans être assiégé par le flux.'
+        heading: 'Un rapport plus calme aux choses',
+        text: 'L’objet n’exige aucune mise à jour : il laisse à chacun le temps de mûrir une idée plutôt que de la consommer.'
       }
     ]
   }
@@ -224,64 +224,64 @@ const GREEK_SOLUTION_MODES = {
 
 const CHINESE_VULNERABILITIES = [
   {
-    tag: 'Le « Vivre » · Horreur du vide vs Vide fertile (Laozi)',
-    title: 'La disparition de l’intervalle silencieux qui rend la vie habitable',
+    tag: 'Le « Vivre » · Vide fertile (Laozi)',
+    title: 'La peur des trois minutes sans rien faire',
     image: IMAGES.taoVideFertile,
     description:
-      'Dans le Dao De Jing, c’est le creux vide du bol ou du moyeu qui rend l’objet utile. En comblant chaque micro-temps mort (ascenseur, métro, insomnie), Instagram détruit ce vide fertile et rend la moindre seconde d’attente anxiogène.'
+      'Dans le taoïsme, le vide d’un bol ou d’une pause est ce qui les rend utiles. En remplissant chaque attente (métro, file, ascenseur), l’écran supprime cet espace de repos.'
   },
   {
-    tag: 'Le « Vivre » · Forçage (You wei) vs Wu wei et Souffle (Qi)',
-    title: 'L’hyper-agitation permanente contre la justesse du rythme vital',
+    tag: 'Le « Vivre » · Wu wei et Souffle',
+    title: 'Agitation permanente contre rythme naturel',
     image: IMAGES.taoWuWeiSouffle,
     description:
-      'Le taoïsme cultive le Wu wei (agir sans forcer, épouser le mouvement naturel) et la circulation calme du souffle (Qi). La capture attentionnelle impose l’inverse : une surexcitation émotionnelle continue qui épuise le souffle vital.'
+      'Le Wu wei consiste à agir sans forcer, au rythme de sa respiration. L’enchaînement des vidéos courtes maintient une tension continue qui coupe le souffle.'
   }
 ];
 
 const CHINESE_SOLUTION_MODES = {
   solution: {
-    label: 'L’espace',
-    kicker: 'L’Alcôve de Vacuité · Bois de cèdre, basalte tiède et eau calme',
-    title: 'Un refuge urbain d’attente sans écran ni prise électrique',
+    label: 'L’abri',
+    kicker: 'Abri de souffle en ville · Chêne clair, sans écran ni pub',
+    title: 'Un abri d’attente qui suit la respiration plutôt que l’horloge',
     points: [
       {
-        heading: 'Dispositif architectural',
-        text: 'Installée dans les gares ou stations de métro, cette alcôve semi-ouverte associe des tasseaux de cèdre filtrant la foule, un banc en basalte légèrement tiède et une vasque d’eau calme reflétant la lumière du ciel.'
+        heading: 'Comment ça marche',
+        text: 'Posé aux arrêts de bus ou sur les quais, cet abri en bois retire toute publicité et prise USB. Un discret capteur sans contact dans le dossier fait pivoter lentement les lames de bois au rythme d’une respiration calme.'
       },
       {
         heading: 'Soin du Vivre',
-        text: 'Protège les 3 minutes d’attente comme un interstice légitime de respiration : aucun signal à traiter, aucune tâche à accomplir, un espace conçu pour simplement laisser retomber le souffle.'
+        text: 'Les trois minutes d’attente redeviennent une vraie pause où l’on peut souffler et regarder la rue, sans sortir son téléphone.'
       }
     ]
   },
   merleau: {
     label: 'Merleau-Ponty',
-    kicker: 'Expérience vécue · Décentrement du regard et ancrage postural',
-    title: 'Ouvrir la vision périphérique et ressentir la chair du monde',
+    kicker: 'Expérience vécue · Posture et champ visuel',
+    title: 'Rouvrir le regard et relâcher les épaules',
     points: [
       {
-        heading: 'Sortie de l’entonnoir oculocentrique',
-        text: 'L’écran vertical enferme le regard dans un tunnel lumineux. Les tasseaux ajourés et le reflet changeant de l’eau réouvrent la profondeur de champ et l’attention périphérique.'
+        heading: 'Sortir du tunnel de l’écran',
+        text: 'Les lames de bois laissent passer l’air et la lumière du jour, ramenant l’attention vers la rue et l’espace autour de soi.'
       },
       {
-        heading: 'Gravité et respiration incarnée',
-        text: 'La tiédeur de la pierre sous les paumes et le poids de l’assise ramènent la conscience dans le buste et la respiration thoracique, réconciliant le corps avec son milieu.'
+        heading: 'Un appui pour le dos et le souffle',
+        text: 'En s’adossant au bois tiède qui accompagne lentement l’expiration, le corps se redresse et relâche sa crispation.'
       }
     ]
   },
   heidegger: {
     label: 'Heidegger',
-    kicker: 'Mode d’être au monde · Quitter le « On » (das Man)',
-    title: 'Délivrer le Dasein du bavardage numérique et réhabiter le présent',
+    kicker: 'Mode d’être au monde · Quitter le bavardage collectif',
+    title: 'Habiter le moment présent plutôt que le flux du « On »',
     points: [
       {
-        heading: 'Arrachement au « On » (das Man)',
-        text: 'Sur le fil, chacun regarde ce que « l’on » regarde, pris dans la curiosité agitée et le bavardage. L’alcôve suspend cette distraction collective pour rendre à chacun son propre temps.'
+        heading: 'Échapper à la distraction commune',
+        text: 'Sur le fil, chacun regarde ce que tout le monde regarde au même instant. L’abri suspend cette agitation pour rendre chacun à son propre temps.'
       },
       {
-        heading: 'Habiter entre terre et ciel',
-        text: 'Par la pierre, le bois, l’eau et la lumière naturelle, l’espace réinscrit l’attente quotidienne dans une présence sereine au monde réel plutôt que dans l’oubli de l’être.'
+        heading: 'Séjourner simplement dehors',
+        text: 'Entre bois, air et lumière naturelle, attendre le bus cesse d’être un temps mort à fuir pour devenir un moment habitable.'
       }
     ]
   }
@@ -1690,7 +1690,7 @@ export default function App() {
           </section>
 
           {/* ===================================================================
-              ANTIQUITÉ GRECQUE : FAIRE, SAVOIR & LE SOCLE DE CÉSURE
+              ANTIQUITÉ GRECQUE : FAIRE, SAVOIR & TABLETTE D'ARGILE TEMPORAIRE
              =================================================================== */}
           <section
             id="sec-greek"
@@ -1786,12 +1786,12 @@ export default function App() {
               {renderPostFooter(
                 'b1-greek',
                 'pensee.grecque',
-                'Glissez l’image pour passer du Faire (technè et praxis) au Savoir (pharmakon et mémoire vive).',
+                'Glissez l’image pour passer du Faire (Aristote) au Savoir (Platon).',
                 []
               )}
             </article>
 
-            {/* B2 : Solution physique (Le Socle de Césure) + Merleau-Ponty & Heidegger */}
+            {/* B2 : Solution physique (La Tablette d'Argile Temporaire) + Merleau-Ponty & Heidegger */}
             <article className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${cardSurfaceClass}`}>
               <div className="flex items-center justify-between px-4 py-3">
                 <div className="flex items-center gap-2.5">
@@ -1802,9 +1802,9 @@ export default function App() {
                     onSelectAvatar={setZoomedAvatar}
                   />
                   <div>
-                    <div className="text-xs font-bold">socle.de.cesure</div>
+                    <div className="text-xs font-bold">tablette.argile</div>
                     <div className="text-[11px] opacity-60">
-                      Solution physique anti-écran · Antiquité grecque
+                      Objet prospectif anti-écran · Antiquité grecque
                     </div>
                   </div>
                 </div>
@@ -1817,8 +1817,8 @@ export default function App() {
                 {renderHeartBurstOverlay('b2-greek')}
 
                 <img
-                  src={IMAGES.solutionSocleCesure}
-                  alt="Le Socle de Césure en céramique, laiton et papier coton"
+                  src={IMAGES.solutionTabletteArgile}
+                  alt="Tablette d’argile temporaire en bois avec stylet sur un bureau"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
@@ -1868,15 +1868,15 @@ export default function App() {
 
               {renderPostFooter(
                 'b2-greek',
-                'socle.de.cesure',
-                'Un objet tactile qui suspend le flux numérique pour rendre au corps son faire et à la pensée sa mémoire.',
+                'tablette.argile',
+                'Ce qui n’est pas relu ni entretenu à la main s’efface doucement au bout de sept jours.',
                 []
               )}
             </article>
           </section>
 
           {/* ===================================================================
-              ANTIQUITÉ CHINOISE (TAOÏSME) : VIVRE & L'ALCÔVE DE VACUITÉ
+              ANTIQUITÉ CHINOISE (TAOÏSME) : VIVRE & L'ABRI DE SOUFFLE EN VILLE
              =================================================================== */}
           <section
             id="sec-chinese"
@@ -1972,12 +1972,12 @@ export default function App() {
               {renderPostFooter(
                 'c1-chinese',
                 'voie.du.tao',
-                'Glissez l’image pour explorer le vide fertile (Laozi) puis le Wu wei et la circulation du souffle.',
+                'Glissez l’image pour passer du vide fertile (Laozi) au Wu wei et au souffle.',
                 []
               )}
             </article>
 
-            {/* C2 : Espace physique (L'Alcôve de Vacuité) + Merleau-Ponty & Heidegger */}
+            {/* C2 : Espace physique (L'Abri de Souffle en Ville) + Merleau-Ponty & Heidegger */}
             <article className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${cardSurfaceClass}`}>
               <div className="flex items-center justify-between px-4 py-3">
                 <div className="flex items-center gap-2.5">
@@ -1988,9 +1988,9 @@ export default function App() {
                     onSelectAvatar={setZoomedAvatar}
                   />
                   <div>
-                    <div className="text-xs font-bold">alcove.de.vacuite</div>
+                    <div className="text-xs font-bold">abri.de.souffle</div>
                     <div className="text-[11px] opacity-60">
-                      Espace physique anti-écran · Taoïsme
+                      Espace prospectif anti-écran · Taoïsme
                     </div>
                   </div>
                 </div>
@@ -2003,15 +2003,15 @@ export default function App() {
                 {renderHeartBurstOverlay('c2-chinese')}
 
                 <img
-                  src={IMAGES.solutionAlcoveVacuite}
-                  alt="L'Alcôve de Vacuité en cèdre brut, basalte tiède et vasque d'eau calme"
+                  src={IMAGES.solutionAbriSouffle}
+                  alt="Abri de souffle en ville en bois clair avec lames pivotantes et sans écran"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               <div className="px-5 pt-4 pb-2 space-y-4">
-                {/* Sélecteur interactif : Espace / Merleau-Ponty / Heidegger */}
+                {/* Sélecteur interactif : Abri / Merleau-Ponty / Heidegger */}
                 <div className="flex items-center gap-1 p-1 rounded-lg bg-current/5">
                   {(['solution', 'merleau', 'heidegger'] as PhilosophyTab[]).map((tabKey) => (
                     <button
@@ -2054,8 +2054,8 @@ export default function App() {
 
               {renderPostFooter(
                 'c2-chinese',
-                'alcove.de.vacuite',
-                'Redonner droit de cité aux trois minutes d’attente silencieuse en ville sans écran ni sollicitation.',
+                'abri.de.souffle',
+                'Trois minutes d’attente en ville sans publicité ni écran, au rythme calme de la respiration.',
                 []
               )}
             </article>
