@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RefreshCw, Heart, MessageCircle, UserPlus, Eye, Play } from 'lucide-react';
 import { ProfileAvatar, AvatarProfileInfo } from './ProfileAvatar';
+import { IMAGES } from '../assets/images';
 
 const CASINO_PULLS = [
   {
@@ -125,15 +126,15 @@ interface PebblingDmPostProps {
 
 const DM_REEL_THUMBS = [
   {
-    img: '/src/assets/images/dm_thumb_cat_1794409616956.jpg',
+    img: IMAGES.dmThumbCat,
     label: '« Regarde cette vidéo »'
   },
   {
-    img: '/src/assets/images/dm_thumb_streetfood_1794409617727.jpg',
+    img: IMAGES.dmThumbStreetfood,
     label: '« On y va quand ? »'
   },
   {
-    img: '/src/assets/images/dm_thumb_skate_1794409618963.jpg',
+    img: IMAGES.dmThumbSkate,
     label: '« Attends la chute »'
   }
 ];

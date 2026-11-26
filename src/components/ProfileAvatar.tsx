@@ -1,4 +1,5 @@
 import React from 'react';
+import { IMAGES } from '../assets/images';
 
 export type AvatarVariant =
   | 'care'
@@ -25,85 +26,85 @@ export interface AvatarProfileInfo {
 
 export const AVATAR_DIRECTORY: Record<AvatarVariant, AvatarProfileInfo> = {
   care: {
-    src: '/src/assets/images/avatar_person_1_1794407544411.jpg',
+    src: IMAGES.avatarPerson1,
     name: 'Clara Mercier',
     handle: '@culture.du.soin',
     role: 'Chercheuse en design critique & éthique du Care'
   },
   stats: {
-    src: '/src/assets/images/avatar_person_2_1794407547308.jpg',
+    src: IMAGES.avatarPerson2,
     name: 'Thomas Vance',
     handle: '@observatoire.meta',
     role: 'Analyste données & démographie des plateformes'
   },
   hcd: {
-    src: '/src/assets/images/avatar_person_3_1794407548359.jpg',
+    src: IMAGES.avatarPerson3,
     name: 'Inès Benali',
     handle: '@atelier.hcd',
     role: 'Product Designer · Human-Centered Design'
   },
   closefriends: {
-    src: '/src/assets/images/avatar_person_5_1794407555444.jpg',
+    src: IMAGES.avatarPerson5,
     name: 'Camille Laurent',
     handle: '@cercle.intime',
     role: 'Cercle Amis proches (Close Friends)'
   },
   reels: {
-    src: '/src/assets/images/avatar_person_4_1794407548888.jpg',
+    src: IMAGES.avatarPerson4,
     name: 'Lucas Moreau',
     handle: '@flux.continu',
     role: 'Créateur vidéo & étude du Flow toxique'
   },
   fomo: {
-    src: '/src/assets/images/avatar_person_3_1794407548359.jpg',
+    src: IMAGES.avatarPerson3,
     name: 'Sarah K.',
     handle: '@veille.fomo',
     role: 'Observatoire des tendances et de la synchronisation sociale'
   },
   creators: {
-    src: '/src/assets/images/avatar_person_4_1794407548888.jpg',
+    src: IMAGES.avatarPerson4,
     name: 'Maxime D.',
     handle: '@programme.creators',
     role: 'Créateur de contenu sous contrat algorithmique'
   },
   skinner: {
-    src: '/src/assets/images/avatar_person_2_1794407547308.jpg',
+    src: IMAGES.avatarPerson2,
     name: 'Dr. Marc Halphen',
     handle: '@labo.skinner',
     role: 'Psychologie comportementale & renforcement intermittent'
   },
   blindspots: {
-    src: '/src/assets/images/avatar_person_1_1794407544411.jpg',
+    src: IMAGES.avatarPerson1,
     name: 'Collectif Sciences & Santé',
     handle: '@etudes.cliniques',
     role: 'Revue des études Semmelweis, Harvard & Facebook Files'
   },
   ethics: {
-    src: '/src/assets/images/avatar_person_5_1794407555444.jpg',
+    src: IMAGES.avatarPerson5,
     name: 'Éthique du Care',
     handle: '@design.du.soin',
     role: 'Collectif pour un design de la déconnexion'
   },
   leo: {
-    src: '/src/assets/images/avatar_person_4_1794407548888.jpg',
+    src: IMAGES.avatarPerson4,
     name: 'Léo Prévost',
     handle: '@leo.prvt',
     role: 'Contact DM · Envoi quotidien de Reels (Pebbling)'
   },
   creator1: {
-    src: '/src/assets/images/avatar_person_1_1794407544411.jpg',
+    src: IMAGES.avatarPerson1,
     name: 'Emma R.',
     handle: '@dopamine.daily',
     role: 'Créatrice Reels'
   },
   creator2: {
-    src: '/src/assets/images/avatar_person_5_1794407555444.jpg',
+    src: IMAGES.avatarPerson5,
     name: 'Chloé V.',
     handle: '@5am.aesthetic',
     role: 'Lifestyle & Morning Routine'
   },
   creator3: {
-    src: '/src/assets/images/avatar_person_2_1794407547308.jpg',
+    src: IMAGES.avatarPerson2,
     name: 'Nathan B.',
     handle: '@pov.insomnie',
     role: 'Memes nocturnes'

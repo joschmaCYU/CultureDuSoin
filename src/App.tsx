@@ -15,6 +15,7 @@ import {
   AvatarProfileInfo,
   AvatarVariant
 } from './components/ProfileAvatar';
+import { IMAGES } from './assets/images';
 import {
   Heart,
   MessageCircle,
@@ -72,7 +73,7 @@ const HISTORY_ERAS = [
     title: 'Le Polaroid numérique',
     sub: 'Systrom et Krieger · Flux chronologique fini',
     badge: 'Quand on a tout vu, on ferme l’application',
-    image: '/src/assets/images/insta_polaroid_coffee_1794408838229.jpg',
+    image: IMAGES.instaPolaroidCoffee,
     witnessCaption: 'Un café au soleil avant de reprendre le travail ☕ #polaroid'
   },
   {
@@ -80,7 +81,7 @@ const HISTORY_ERAS = [
     title: 'L’ère Facebook et le graphe social',
     sub: 'Rachat pour 1 milliard $ · Flux algorithmique (2016)',
     badge: 'Quantification sociale par les mentions j’aime',
-    image: '/src/assets/images/insta_panoptic_museum_1794408840833.jpg',
+    image: IMAGES.instaPanopticMuseum,
     witnessCaption: 'Naissance des influenceurs et du score social chiffré.'
   },
   {
@@ -88,7 +89,7 @@ const HISTORY_ERAS = [
     title: 'Le clonage de Snapchat et les stories',
     sub: 'Contenus éphémères de 24 heures',
     badge: 'Boucle d’urgence quotidienne',
-    image: '/src/assets/images/vuln_isolement_friends_1794409614766.jpg',
+    image: IMAGES.vulnIsolementFriends,
     witnessCaption: 'Story amis proches · Expire dans 24h pour forcer le retour quotidien.'
   },
   {
@@ -96,7 +97,7 @@ const HISTORY_ERAS = [
     title: 'La panique TikTok et les recommandations IA',
     sub: 'Du graphe social au graphe d’intérêt',
     badge: 'Aucun point d’arrêt · Rétention maximale',
-    image: '/src/assets/images/insta_reel_vertical_scene_1794408841850.jpg',
+    image: IMAGES.instaReelVerticalScene,
     witnessCaption: 'Inconnus recommandés par intelligence artificielle en plein écran vertical sans fin.'
   }
 ];
@@ -105,28 +106,28 @@ const HCD_VULNERABILITIES = [
   {
     tag: 'L’angoisse de l’oubli',
     title: 'La peur que nos vies ne laissent aucune trace',
-    image: '/src/assets/images/vuln_oubli_nostalgia_1794409613207.jpg',
+    image: IMAGES.vulnOubliNostalgia,
     hcdPromise: 'Un musée personnel et un journal de bord pour conserver nos souvenirs.',
     hiddenThought: 'Si un moment n’est pas publié et chiffré en cœurs, il semble ne pas avoir existé.'
   },
   {
     tag: 'L’isolement social urbain',
     title: '« Rapprochez-vous de ceux que vous aimez »',
-    image: '/src/assets/images/vuln_isolement_friends_1794409614766.jpg',
+    image: IMAGES.vulnIsolementFriends,
     hcdPromise: 'Cocons d’intimité (amis proches et messages privés) : 81 % des adolescents s’y sentent plus proches de leurs amis (Pew Research Center).',
     hiddenThought: 'Les stories expirent en 24 heures : le soin amical devient une vérification permanente.'
   },
   {
     tag: 'La peur du vide et l’ennui',
     title: 'Combler l’attente et anesthésier le stress',
-    image: '/src/assets/images/vuln_ennui_waiting_1794409614845.jpg',
+    image: IMAGES.vulnEnnuiWaiting,
     hcdPromise: 'À court terme, le défilement vidéo agit comme un tampon émotionnel face à l’ennui.',
     hiddenThought: 'Éradiquer toute tolérance au calme pour rendre le cerveau dépendant au flux.'
   },
   {
     tag: 'La peur d’être exclu et la précarité',
     title: 'Ne rien manquer du groupe et monétiser sa passion',
-    image: '/src/assets/images/meme_fomo_insta_1794407551278.jpg',
+    image: IMAGES.memeFomoInsta,
     hcdPromise: 'Rester connecté aux références communes et permettre aux créateurs de vivre de leur contenu.',
     hiddenThought: 'Anxiété d’être hors-jeu socialement et production gratuite de contenus sept jours sur sept.'
   }
@@ -136,14 +137,14 @@ const LONGTERM_SLIDES = [
   {
     tag: 'Déplacement de l’isolement',
     title: 'La solitude hyper-connectée',
-    image: '/src/assets/images/longterm_solitude_hyperconnectee_1794577119713.jpg',
+    image: IMAGES.longtermSolitudeHyperconnectee,
     description:
       'La profondeur des relations humaines est remplacée par la largeur de l’audience : entouré de millions de comptes, mais fondamentalement seul face à l’écran.'
   },
   {
     tag: 'Entretien de la marque personnelle',
     title: 'La perssion numérique',
-    image: '/src/assets/images/longterm_epuisement_performatif_1794577117619.jpg',
+    image: IMAGES.longtermEpuisementPerformatif,
     description:
       'Maintenir sa façade numérique et nourrir l’algorithme sous peine d’invisibilisation transforme le soin de soi en source permanente de stress.'
   }
@@ -1139,7 +1140,7 @@ export default function App() {
                 {renderHeartBurstOverlay('2.1-world')}
 
                 <img
-                  src="/src/assets/images/decor_photogenique_cafe_1794410121909.jpg"
+                  src={IMAGES.decorPhotogeniqueCafe}
                   alt="Le monde réel réduit à un décor photogénique"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
@@ -1314,7 +1315,7 @@ export default function App() {
                 {renderHeartBurstOverlay('3.1-studies')}
 
                 <img
-                  src="/src/assets/images/insta_facebook_files_mirror_1794408840761.jpg"
+                  src={IMAGES.instaFacebookFilesMirror}
                   alt="Facebook Files dysmorphie adolescente"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, MessageCircle, Send, Bookmark } from 'lucide-react';
 import { ProfileAvatar, AvatarVariant, AvatarProfileInfo } from './ProfileAvatar';
+import { IMAGES } from '../assets/images';
 
 interface InfiniteScrollSabotageProps {
   disableInfiniteScroll?: boolean;
@@ -22,7 +23,7 @@ const REELS_VISUALS: {
     id: 1,
     user: 'dopamine.daily',
     avatar: 'creator1',
-    image: '/src/assets/images/insta_reel_vertical_scene_1794408841850.jpg',
+    image: IMAGES.instaReelVerticalScene,
     hook: 'Attends la fin (0:14)',
     tag: 'Horloge système masquée',
     likes: '412 k',
@@ -32,7 +33,7 @@ const REELS_VISUALS: {
     id: 2,
     user: 'satisfaisant.loop',
     avatar: 'reels',
-    image: '/src/assets/images/dm_thumb_skate_1794409618963.jpg',
+    image: IMAGES.dmThumbSkate,
     hook: 'Ne cligne pas des yeux',
     tag: 'Flux continu sans pause',
     likes: '2,8 M',
@@ -42,7 +43,7 @@ const REELS_VISUALS: {
     id: 3,
     user: 'pov.insomnie',
     avatar: 'creator3',
-    image: '/src/assets/images/vuln_ennui_waiting_1794409614845.jpg',
+    image: IMAGES.vulnEnnuiWaiting,
     hook: 'Il est 3h12 du matin',
     tag: 'Distorsion temporelle',
     likes: '1,4 M',
@@ -52,7 +53,7 @@ const REELS_VISUALS: {
     id: 4,
     user: 'routine.matin',
     avatar: 'creator2',
-    image: '/src/assets/images/dm_thumb_streetfood_1794409617727.jpg',
+    image: IMAGES.dmThumbStreetfood,
     hook: 'Encore une dernière vidéo',
     tag: 'Aucun signal d’arrêt',
     likes: '890 k',
