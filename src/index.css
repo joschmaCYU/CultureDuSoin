@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes crtSnapOff {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  45% {
+    transform: scaleY(0.008) scaleX(1);
+  }
+  85% {
+    transform: scaleY(0.008) scaleX(0.01);
+  }
+  100% {
+    transform: scaleY(0) scaleX(0);
+  }
+}
+
+.crt-collapse {
+  animation: crtSnapOff 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes receiptPrint {
+  0% {
+    transform: translateY(-24px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.receipt-print-anim {
+  animation: receiptPrint 0.35s steps(8, end) forwards;
+}
+
+@keyframes instaFlameRise {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-140px) scale(1.25) rotate(-8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-290px) scale(0.9) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+.insta-flame-particle {
+  animation: instaFlameRise 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes instaHeartOverlay {
+  0% {
+    transform: scale(0) rotate(-12deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.25) rotate(6deg);
+    opacity: 1;
+  }
+  55% {
+    transform: scale(0.95) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1.05) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.insta-heart-burst {
+  animation: instaHeartOverlay 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes instaLikeBtnBounce {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.38);
+  }
+  70% {
+    transform: scale(0.88);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.insta-like-bounce {
+  animation: instaLikeBtnBounce 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}

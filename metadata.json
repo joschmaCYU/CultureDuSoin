@@ -1,0 +1,6 @@
+{
+  "name": "Culture du soin : Instagram",
+  "description": "Support de présentation interactif analysant le design centré sur l'humain (HCD), les effets du design et les angles morts d'Instagram.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
