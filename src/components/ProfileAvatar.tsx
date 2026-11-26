@@ -15,7 +15,9 @@ export type AvatarVariant =
   | 'leo'
   | 'creator1'
   | 'creator2'
-  | 'creator3';
+  | 'creator3'
+  | 'greek'
+  | 'chinese';
 
 export interface AvatarProfileInfo {
   src: string;
@@ -108,6 +110,18 @@ export const AVATAR_DIRECTORY: Record<AvatarVariant, AvatarProfileInfo> = {
     name: 'Nathan B.',
     handle: '@pov.insomnie',
     role: 'Memes nocturnes'
+  },
+  greek: {
+    src: IMAGES.avatarPerson3,
+    name: 'Hélène D.',
+    handle: '@pensee.grecque',
+    role: 'Philosophie antique · Technè, Praxis & Pharmakon'
+  },
+  chinese: {
+    src: IMAGES.avatarPerson1,
+    name: 'Lin W.',
+    handle: '@voie.du.tao',
+    role: 'Pensée chinoise · Wu wei, Qi & Vide fertile'
   }
 };
 

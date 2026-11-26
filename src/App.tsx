@@ -35,7 +35,10 @@ import {
   Clock,
   ShieldAlert,
   AlertTriangle,
-  Layers
+  Layers,
+  Landmark,
+  Wind,
+  RotateCw
 } from 'lucide-react';
 
 interface FlameParticle {
@@ -64,6 +67,10 @@ const INITIAL_LIKES: Record<string, number> = {
   '3.1-studies': 53,
   '3.2-longterm': 44,
   '3.2-slides': 39,
+  'b1-greek': 48,
+  'b2-greek': 61,
+  'c1-chinese': 45,
+  'c2-chinese': 59,
   '04-care': 68
 };
 
@@ -150,6 +157,138 @@ const LONGTERM_SLIDES = [
   }
 ];
 
+const GREEK_VULNERABILITIES = [
+  {
+    tag: 'Le « Faire » · Technè et Praxis (Aristote)',
+    title: 'Du geste créateur incarné au réflexe machinique',
+    image: IMAGES.greekFaireTechne,
+    description:
+      'Pour Aristote, le faire (technè / poïèsis) produit une œuvre qui a du sens, et l’agir (praxis) accomplit le sujet. Instagram atrophie ce « Faire » en un réflexe répétitif du pouce (défiler, liker, formater pour l’algorithme) qui ne laisse ni maîtrise ni œuvre véritable.'
+  },
+  {
+    tag: 'Le « Savoir » · Pharmakon et Doxa (Platon)',
+    title: 'Mémoire externalisée et illusion de connaissance',
+    image: IMAGES.greekSavoirPharmakon,
+    description:
+      'Dans le Phèdre, Platon montre que la trace extérieure (hypomnèse) endort la mémoire vivante (anamnèse). Le fil Instagram agit comme un pharmakon ambigu : il promet de conserver nos souvenirs et de nous informer, mais réduit le savoir (épistémè) au bruit instantané de l’opinion (doxa).'
+  }
+];
+
+const GREEK_SOLUTION_MODES = {
+  solution: {
+    label: 'L’objet',
+    kicker: 'Le Socle de Césure · Céramique, laiton et papier coton',
+    title: 'Déposer l’écran pour retrouver la main et la trace choisie',
+    points: [
+      {
+        heading: 'Principe matériel',
+        text: 'Un socle lourd en grès mat et laiton brossé où le téléphone glisse face cachée. Son poids libère un sablier mécanique à billes de 15 minutes et ouvre un feuillet de papier coton.'
+      },
+      {
+        heading: 'Soin du Faire et du Savoir',
+        text: 'Réhabilite un faire lent (écrire, dessiner, noter une idée à la main) et restaure un savoir intériorisé : on ne choisit de conserver que ce qui mérite d’être formulé par soi-même.'
+      }
+    ]
+  },
+  merleau: {
+    label: 'Merleau-Ponty',
+    kicker: 'Expérience vécue · Corps propre et intentionnalité motrice',
+    title: 'Quitter le glissement lisse pour habiter la résistance de la matière',
+    points: [
+      {
+        heading: 'Réveil du schéma corporel',
+        text: 'Sur une vitre froide, le doigt ne touche que du vide lumineux. Ici, la main éprouve le grain du grès, la fraîcheur du laiton et la friction de la plume sur le papier épais.'
+      },
+      {
+        heading: 'Unité perceptivo-motrice',
+        text: 'La perception redevient active et incarnée : le geste de poser le téléphone engage tout le corps dans une césure spatiale claire, loin de l’hypnose immobile du regard.'
+      }
+    ]
+  },
+  heidegger: {
+    label: 'Heidegger',
+    kicker: 'Mode d’être au monde · Sortir du Gestell vers la Gelassenheit',
+    title: 'Passer du temps mis en demeure au séjour auprès des choses',
+    points: [
+      {
+        heading: 'Rupture avec l’Arraisonnement (Gestell)',
+        text: 'Instagram somme la vie d’apparaître comme un fonds calculable (métriques, stories à rentabiliser). L’objet suspend cette sommation permanente.'
+      },
+      {
+        heading: 'Clairière et sérénité (Gelassenheit)',
+        text: 'Le Socle institue un lieu où l’outil cesse de commander à l’humain : l’être-là (Dasein) retrouve la capacité d’habiter sa pensée sans être assiégé par le flux.'
+      }
+    ]
+  }
+} as const;
+
+const CHINESE_VULNERABILITIES = [
+  {
+    tag: 'Le « Vivre » · Horreur du vide vs Vide fertile (Laozi)',
+    title: 'La disparition de l’intervalle silencieux qui rend la vie habitable',
+    image: IMAGES.taoVideFertile,
+    description:
+      'Dans le Dao De Jing, c’est le creux vide du bol ou du moyeu qui rend l’objet utile. En comblant chaque micro-temps mort (ascenseur, métro, insomnie), Instagram détruit ce vide fertile et rend la moindre seconde d’attente anxiogène.'
+  },
+  {
+    tag: 'Le « Vivre » · Forçage (You wei) vs Wu wei et Souffle (Qi)',
+    title: 'L’hyper-agitation permanente contre la justesse du rythme vital',
+    image: IMAGES.taoWuWeiSouffle,
+    description:
+      'Le taoïsme cultive le Wu wei (agir sans forcer, épouser le mouvement naturel) et la circulation calme du souffle (Qi). La capture attentionnelle impose l’inverse : une surexcitation émotionnelle continue qui épuise le souffle vital.'
+  }
+];
+
+const CHINESE_SOLUTION_MODES = {
+  solution: {
+    label: 'L’espace',
+    kicker: 'L’Alcôve de Vacuité · Bois de cèdre, basalte tiède et eau calme',
+    title: 'Un refuge urbain d’attente sans écran ni prise électrique',
+    points: [
+      {
+        heading: 'Dispositif architectural',
+        text: 'Installée dans les gares ou stations de métro, cette alcôve semi-ouverte associe des tasseaux de cèdre filtrant la foule, un banc en basalte légèrement tiède et une vasque d’eau calme reflétant la lumière du ciel.'
+      },
+      {
+        heading: 'Soin du Vivre',
+        text: 'Protège les 3 minutes d’attente comme un interstice légitime de respiration : aucun signal à traiter, aucune tâche à accomplir, un espace conçu pour simplement laisser retomber le souffle.'
+      }
+    ]
+  },
+  merleau: {
+    label: 'Merleau-Ponty',
+    kicker: 'Expérience vécue · Décentrement du regard et ancrage postural',
+    title: 'Ouvrir la vision périphérique et ressentir la chair du monde',
+    points: [
+      {
+        heading: 'Sortie de l’entonnoir oculocentrique',
+        text: 'L’écran vertical enferme le regard dans un tunnel lumineux. Les tasseaux ajourés et le reflet changeant de l’eau réouvrent la profondeur de champ et l’attention périphérique.'
+      },
+      {
+        heading: 'Gravité et respiration incarnée',
+        text: 'La tiédeur de la pierre sous les paumes et le poids de l’assise ramènent la conscience dans le buste et la respiration thoracique, réconciliant le corps avec son milieu.'
+      }
+    ]
+  },
+  heidegger: {
+    label: 'Heidegger',
+    kicker: 'Mode d’être au monde · Quitter le « On » (das Man)',
+    title: 'Délivrer le Dasein du bavardage numérique et réhabiter le présent',
+    points: [
+      {
+        heading: 'Arrachement au « On » (das Man)',
+        text: 'Sur le fil, chacun regarde ce que « l’on » regarde, pris dans la curiosité agitée et le bavardage. L’alcôve suspend cette distraction collective pour rendre à chacun son propre temps.'
+      },
+      {
+        heading: 'Habiter entre terre et ciel',
+        text: 'Par la pierre, le bois, l’eau et la lumière naturelle, l’espace réinscrit l’attente quotidienne dans une présence sereine au monde réel plutôt que dans l’oubli de l’être.'
+      }
+    ]
+  }
+} as const;
+
+type PhilosophyTab = 'solution' | 'merleau' | 'heidegger';
+
 export default function App() {
   const [activeSectionId, setActiveSectionId] = useState<string>('00');
   const [likedPosts, setLikedPosts] = useState<Record<string, boolean>>({});
@@ -162,6 +301,10 @@ export default function App() {
   const [historyTab, setHistoryTab] = useState<number>(0);
   const [hcdSlide, setHcdSlide] = useState<number>(0);
   const [longtermSlide, setLongtermSlide] = useState<number>(0);
+  const [greekSlide, setGreekSlide] = useState<number>(0);
+  const [greekSolutionTab, setGreekSolutionTab] = useState<PhilosophyTab>('solution');
+  const [chineseSlide, setChineseSlide] = useState<number>(0);
+  const [chineseSolutionTab, setChineseSolutionTab] = useState<PhilosophyTab>('solution');
   const [decodeHcdSlide, setDecodeHcdSlide] = useState<Record<number, boolean>>({});
   const [decodeContext, setDecodeContext] = useState<boolean>(false);
 
@@ -185,6 +328,22 @@ export default function App() {
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(true);
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const prevCareActiveRef = useRef<boolean>(false);
+
+  // Retour automatique tout en haut une fois que tout est apaisé (retour au monde réel)
+  useEffect(() => {
+    if (allCareSwitchesActive && !prevCareActiveRef.current) {
+      const timer = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActiveSectionId('00');
+      }, 650);
+      prevCareActiveRef.current = true;
+      return () => clearTimeout(timer);
+    }
+    if (!allCareSwitchesActive) {
+      prevCareActiveRef.current = false;
+    }
+  }, [allCareSwitchesActive]);
 
   // Transition fluide Clair -> Noir (Effets & Angles morts) -> Blanc (Conclusion)
   const isDarkSection =
@@ -203,7 +362,7 @@ export default function App() {
   }, [effectiveTimerRunning]);
 
   useEffect(() => {
-    const keys = ['00', '1.1', '1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '04'];
+    const keys = ['00', '1.1', '1.2', '2.1', '2.2', '2.3', '3.1', '3.2', 'greek', 'chinese', '04'];
     const handleScroll = () => {
       const center = window.innerHeight * 0.42;
       let closest = '00';
@@ -382,6 +541,10 @@ export default function App() {
   const currentEra = HISTORY_ERAS[historyTab];
   const currentVulnerability = HCD_VULNERABILITIES[hcdSlide];
   const currentLongterm = LONGTERM_SLIDES[longtermSlide];
+  const currentGreekVulnerability = GREEK_VULNERABILITIES[greekSlide];
+  const currentGreekSolution = GREEK_SOLUTION_MODES[greekSolutionTab];
+  const currentChineseVulnerability = CHINESE_VULNERABILITIES[chineseSlide];
+  const currentChineseSolution = CHINESE_SOLUTION_MODES[chineseSolutionTab];
   const isCurrentHcdDecoded = Boolean(decodeHcdSlide[hcdSlide]);
 
   return (
@@ -431,6 +594,22 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Bouton fixe en haut à droite pour recharger la page */}
+      <button
+        type="button"
+        onClick={() => window.location.reload()}
+        title="Recharger la page"
+        aria-label="Recharger la page"
+        className={`fixed top-4 right-4 z-40 flex items-center gap-2 px-3.5 py-2 rounded-full border text-xs font-semibold transition-colors duration-200 cursor-pointer ${
+          isDarkSection
+            ? 'bg-[#121212] border-[#262626] text-[#F5F5F5] hover:bg-[#1E1E1E]'
+            : 'bg-white border-[#DBDBDB] text-[#111827] hover:bg-[#F3F4F6]'
+        }`}
+      >
+        <RotateCw className="w-3.5 h-3.5" />
+        <span className="hidden sm:inline">Recharger</span>
+      </button>
 
       {/* SIDEBAR GAUCHE SANS NOMBRES */}
       <aside
@@ -557,6 +736,32 @@ export default function App() {
 
             <button
               type="button"
+              onClick={() => scrollToSection('greek')}
+              className={`w-full flex items-center gap-3 px-3.5 py-2.5 text-xs rounded-xl text-left cursor-pointer ${
+                activeSectionId === 'greek'
+                  ? 'font-bold text-[#1E3A8A] bg-current/5'
+                  : 'opacity-75 hover:opacity-100 hover:bg-current/5'
+              }`}
+            >
+              <Landmark className="w-4 h-4 text-[#1E3A8A] shrink-0" />
+              <span>Antiquité grecque</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('chinese')}
+              className={`w-full flex items-center gap-3 px-3.5 py-2.5 text-xs rounded-xl text-left cursor-pointer ${
+                activeSectionId === 'chinese'
+                  ? 'font-bold text-[#14532D] bg-current/5'
+                  : 'opacity-75 hover:opacity-100 hover:bg-current/5'
+              }`}
+            >
+              <Wind className="w-4 h-4 text-[#14532D] shrink-0" />
+              <span>Antiquité chinoise</span>
+            </button>
+
+            <button
+              type="button"
               onClick={() => scrollToSection('04')}
               className={`w-full flex items-center gap-3 px-3.5 py-2.5 text-xs rounded-xl text-left cursor-pointer ${
                 activeSectionId === '04'
@@ -593,12 +798,18 @@ export default function App() {
             }}
             className="space-y-8 scroll-mt-8"
           >
-            {/* Bannière de thèse centrale */}
-            <div className={`p-5 rounded-2xl border transition-colors duration-300 ${cardSurfaceClass}`}>
-              <div className="flex items-center gap-3 mb-2.5">
+            {/* Bannière de thèse centrale (agrandie au retour en haut après activation du mode Care) */}
+            <div
+              className={`rounded-2xl transition-all duration-300 ${cardSurfaceClass} ${
+                allCareSwitchesActive
+                  ? 'p-7 sm:p-9 border-2 border-[#00BA7C]'
+                  : 'p-5 border'
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-3">
                 <ProfileAvatar
                   variant="care"
-                  size="md"
+                  size={allCareSwitchesActive ? 'lg' : 'md'}
                   ringColor="green"
                   onSelectAvatar={setZoomedAvatar}
                 />
@@ -610,7 +821,13 @@ export default function App() {
                   <div className="text-[11px] opacity-60">Thèse centrale</div>
                 </div>
               </div>
-              <p className="text-base font-bold leading-snug">
+              <p
+                className={`font-bold transition-all duration-300 ${
+                  allCareSwitchesActive
+                    ? 'text-2xl sm:text-3xl leading-snug'
+                    : 'text-base leading-snug'
+                }`}
+              >
                 « Instagram est un pharmakon : une architecture d’extraction d’attention déguisée en infrastructure de soin. »
               </p>
             </div>
@@ -1467,6 +1684,378 @@ export default function App() {
                 '3.2-slides',
                 'effets.long.terme',
                 'Le remède initial s’est retourné en solitude face à l’écran et en corvée d’entretien d’une façade numérique.',
+                []
+              )}
+            </article>
+          </section>
+
+          {/* ===================================================================
+              ANTIQUITÉ GRECQUE : FAIRE, SAVOIR & LE SOCLE DE CÉSURE
+             =================================================================== */}
+          <section
+            id="sec-greek"
+            ref={(el) => {
+              sectionRefs.current['greek'] = el;
+            }}
+            className="space-y-8 scroll-mt-8"
+          >
+            {/* B1 : Faire et Savoir dans l'Antiquité grecque */}
+            <article className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${cardSurfaceClass}`}>
+              <div className="flex items-center justify-between px-4 py-3">
+                <div className="flex items-center gap-2.5">
+                  <ProfileAvatar
+                    variant="greek"
+                    size="md"
+                    ringColor="blue"
+                    onSelectAvatar={setZoomedAvatar}
+                  />
+                  <div>
+                    <div className="text-xs font-bold">pensee.grecque</div>
+                    <div className="text-[11px] opacity-60">
+                      Antiquité grecque · Faire et Savoir
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                onMouseDown={(e) => handleSwipeStart(e.clientX)}
+                onMouseUp={(e) => handleSwipeEnd(e.clientX, greekSlide, 1, setGreekSlide)}
+                onTouchStart={(e) => handleSwipeStart(e.touches[0].clientX)}
+                onTouchEnd={(e) => handleSwipeEnd(e.changedTouches[0].clientX, greekSlide, 1, setGreekSlide)}
+                onDoubleClick={() => triggerLike('b1-greek', true)}
+                className="relative aspect-square w-full bg-black overflow-hidden select-none cursor-grab active:cursor-grabbing"
+              >
+                {renderHeartBurstOverlay('b1-greek')}
+
+                <img
+                  src={currentGreekVulnerability.image}
+                  alt={currentGreekVulnerability.title}
+                  referrerPolicy="no-referrer"
+                  draggable={false}
+                  className="w-full h-full object-cover"
+                />
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setGreekSlide((s) => (s === 0 ? 1 : 0));
+                  }}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center cursor-pointer z-20"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setGreekSlide((s) => (s === 0 ? 1 : 0));
+                  }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center cursor-pointer z-20"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="px-5 pt-4 pb-2 space-y-1.5">
+                <div className="flex items-center justify-center gap-1.5 mb-2">
+                  {GREEK_VULNERABILITIES.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setGreekSlide(idx)}
+                      className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${
+                        greekSlide === idx ? 'bg-[#0095F6]' : 'bg-current/25'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <div className="text-xs font-bold text-[#1E3A8A]">
+                  {currentGreekVulnerability.tag}
+                </div>
+                <h3 className="text-base sm:text-lg font-bold leading-snug">
+                  {currentGreekVulnerability.title}
+                </h3>
+                <p className="text-xs sm:text-sm opacity-90 leading-relaxed">
+                  {currentGreekVulnerability.description}
+                </p>
+              </div>
+
+              {renderPostFooter(
+                'b1-greek',
+                'pensee.grecque',
+                'Glissez l’image pour passer du Faire (technè et praxis) au Savoir (pharmakon et mémoire vive).',
+                []
+              )}
+            </article>
+
+            {/* B2 : Solution physique (Le Socle de Césure) + Merleau-Ponty & Heidegger */}
+            <article className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${cardSurfaceClass}`}>
+              <div className="flex items-center justify-between px-4 py-3">
+                <div className="flex items-center gap-2.5">
+                  <ProfileAvatar
+                    variant="greek"
+                    size="md"
+                    ringColor="blue"
+                    onSelectAvatar={setZoomedAvatar}
+                  />
+                  <div>
+                    <div className="text-xs font-bold">socle.de.cesure</div>
+                    <div className="text-[11px] opacity-60">
+                      Solution physique anti-écran · Antiquité grecque
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                onDoubleClick={() => triggerLike('b2-greek', true)}
+                className="relative aspect-square w-full bg-[#F7F4EE] overflow-hidden select-none cursor-pointer"
+              >
+                {renderHeartBurstOverlay('b2-greek')}
+
+                <img
+                  src={IMAGES.solutionSocleCesure}
+                  alt="Le Socle de Césure en céramique, laiton et papier coton"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="px-5 pt-4 pb-2 space-y-4">
+                {/* Sélecteur interactif : Objet / Merleau-Ponty / Heidegger */}
+                <div className="flex items-center gap-1 p-1 rounded-lg bg-current/5">
+                  {(['solution', 'merleau', 'heidegger'] as PhilosophyTab[]).map((tabKey) => (
+                    <button
+                      key={tabKey}
+                      type="button"
+                      onClick={() => setGreekSolutionTab(tabKey)}
+                      className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap ${
+                        greekSolutionTab === tabKey
+                          ? isDarkSection
+                            ? 'bg-[#262626] text-white'
+                            : 'bg-white text-[#111827]'
+                          : 'opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      {GREEK_SOLUTION_MODES[tabKey].label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="space-y-1">
+                  <div className="text-xs font-semibold text-[#1E3A8A]">
+                    {currentGreekSolution.kicker}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold leading-snug">
+                    {currentGreekSolution.title}
+                  </h3>
+                </div>
+
+                <div className="space-y-3 pt-1 border-t border-current/10">
+                  {currentGreekSolution.points.map((point, idx) => (
+                    <div key={idx} className="space-y-0.5">
+                      <div className="text-xs font-bold">{point.heading}</div>
+                      <p className="text-xs sm:text-sm opacity-85 leading-relaxed">
+                        {point.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {renderPostFooter(
+                'b2-greek',
+                'socle.de.cesure',
+                'Un objet tactile qui suspend le flux numérique pour rendre au corps son faire et à la pensée sa mémoire.',
+                []
+              )}
+            </article>
+          </section>
+
+          {/* ===================================================================
+              ANTIQUITÉ CHINOISE (TAOÏSME) : VIVRE & L'ALCÔVE DE VACUITÉ
+             =================================================================== */}
+          <section
+            id="sec-chinese"
+            ref={(el) => {
+              sectionRefs.current['chinese'] = el;
+            }}
+            className="space-y-8 scroll-mt-8"
+          >
+            {/* C1 : Vivre dans l'Antiquité chinoise (Taoïsme) */}
+            <article className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${cardSurfaceClass}`}>
+              <div className="flex items-center justify-between px-4 py-3">
+                <div className="flex items-center gap-2.5">
+                  <ProfileAvatar
+                    variant="chinese"
+                    size="md"
+                    ringColor="green"
+                    onSelectAvatar={setZoomedAvatar}
+                  />
+                  <div>
+                    <div className="text-xs font-bold">voie.du.tao</div>
+                    <div className="text-[11px] opacity-60">
+                      Antiquité chinoise · Taoïsme et Vivre
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                onMouseDown={(e) => handleSwipeStart(e.clientX)}
+                onMouseUp={(e) => handleSwipeEnd(e.clientX, chineseSlide, 1, setChineseSlide)}
+                onTouchStart={(e) => handleSwipeStart(e.touches[0].clientX)}
+                onTouchEnd={(e) => handleSwipeEnd(e.changedTouches[0].clientX, chineseSlide, 1, setChineseSlide)}
+                onDoubleClick={() => triggerLike('c1-chinese', true)}
+                className="relative aspect-square w-full bg-black overflow-hidden select-none cursor-grab active:cursor-grabbing"
+              >
+                {renderHeartBurstOverlay('c1-chinese')}
+
+                <img
+                  src={currentChineseVulnerability.image}
+                  alt={currentChineseVulnerability.title}
+                  referrerPolicy="no-referrer"
+                  draggable={false}
+                  className="w-full h-full object-cover"
+                />
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setChineseSlide((s) => (s === 0 ? 1 : 0));
+                  }}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center cursor-pointer z-20"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setChineseSlide((s) => (s === 0 ? 1 : 0));
+                  }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center cursor-pointer z-20"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="px-5 pt-4 pb-2 space-y-1.5">
+                <div className="flex items-center justify-center gap-1.5 mb-2">
+                  {CHINESE_VULNERABILITIES.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setChineseSlide(idx)}
+                      className={`w-2 h-2 rounded-full transition-colors cursor-pointer ${
+                        chineseSlide === idx ? 'bg-[#0095F6]' : 'bg-current/25'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <div className="text-xs font-bold text-[#14532D]">
+                  {currentChineseVulnerability.tag}
+                </div>
+                <h3 className="text-base sm:text-lg font-bold leading-snug">
+                  {currentChineseVulnerability.title}
+                </h3>
+                <p className="text-xs sm:text-sm opacity-90 leading-relaxed">
+                  {currentChineseVulnerability.description}
+                </p>
+              </div>
+
+              {renderPostFooter(
+                'c1-chinese',
+                'voie.du.tao',
+                'Glissez l’image pour explorer le vide fertile (Laozi) puis le Wu wei et la circulation du souffle.',
+                []
+              )}
+            </article>
+
+            {/* C2 : Espace physique (L'Alcôve de Vacuité) + Merleau-Ponty & Heidegger */}
+            <article className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${cardSurfaceClass}`}>
+              <div className="flex items-center justify-between px-4 py-3">
+                <div className="flex items-center gap-2.5">
+                  <ProfileAvatar
+                    variant="chinese"
+                    size="md"
+                    ringColor="green"
+                    onSelectAvatar={setZoomedAvatar}
+                  />
+                  <div>
+                    <div className="text-xs font-bold">alcove.de.vacuite</div>
+                    <div className="text-[11px] opacity-60">
+                      Espace physique anti-écran · Taoïsme
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                onDoubleClick={() => triggerLike('c2-chinese', true)}
+                className="relative aspect-square w-full bg-[#F7F4EE] overflow-hidden select-none cursor-pointer"
+              >
+                {renderHeartBurstOverlay('c2-chinese')}
+
+                <img
+                  src={IMAGES.solutionAlcoveVacuite}
+                  alt="L'Alcôve de Vacuité en cèdre brut, basalte tiède et vasque d'eau calme"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="px-5 pt-4 pb-2 space-y-4">
+                {/* Sélecteur interactif : Espace / Merleau-Ponty / Heidegger */}
+                <div className="flex items-center gap-1 p-1 rounded-lg bg-current/5">
+                  {(['solution', 'merleau', 'heidegger'] as PhilosophyTab[]).map((tabKey) => (
+                    <button
+                      key={tabKey}
+                      type="button"
+                      onClick={() => setChineseSolutionTab(tabKey)}
+                      className={`flex-1 py-1.5 px-2 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap ${
+                        chineseSolutionTab === tabKey
+                          ? isDarkSection
+                            ? 'bg-[#262626] text-white'
+                            : 'bg-white text-[#111827]'
+                          : 'opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      {CHINESE_SOLUTION_MODES[tabKey].label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="space-y-1">
+                  <div className="text-xs font-semibold text-[#14532D]">
+                    {currentChineseSolution.kicker}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold leading-snug">
+                    {currentChineseSolution.title}
+                  </h3>
+                </div>
+
+                <div className="space-y-3 pt-1 border-t border-current/10">
+                  {currentChineseSolution.points.map((point, idx) => (
+                    <div key={idx} className="space-y-0.5">
+                      <div className="text-xs font-bold">{point.heading}</div>
+                      <p className="text-xs sm:text-sm opacity-85 leading-relaxed">
+                        {point.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {renderPostFooter(
+                'c2-chinese',
+                'alcove.de.vacuite',
+                'Redonner droit de cité aux trois minutes d’attente silencieuse en ville sans écran ni sollicitation.',
                 []
               )}
             </article>
